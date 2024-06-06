@@ -88,28 +88,28 @@ def init():                                 # Animação de entrada
           f'         ⏇he Oceans           \n'
           f'                               \n'
           f'∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~')
-    time.sleep(1.2)
+    # time.sleep(1.2)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  \n'
           f'   ﹡               ﹡         \n'
           f'       SAVE              ⚹    \n'
           f' ٭       ⏇he Oceans           \n'
           f'     *                 ✧      \n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(0.7)
+    # time.sleep(0.7)
     print(f'∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~  \n'
           f'  ﹡                 ﹡        \n'
           f'       SAVE               ⚹   \n'
           f'٭        ⏇he Oceans           \n'
           f'    *                   ✧     \n'
           f'∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~')
-    time.sleep(0.7)
+    # time.sleep(0.7)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  \n'
           f'   ﹡               ﹡         \n'
           f'       SAVE              ⚹    \n'
           f' ٭       ⏇he Oceans           \n'
           f'     *                 ✧      \n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(2.2)
+    # time.sleep(2.2)
     print(f'\n\n\n\n\n')
 
 def respostaUsuario(msg):                   # Pedir inputs (2 casos: msg padrao ou personalizada)
@@ -210,35 +210,35 @@ def tryUserNotFoundOrLogin(loginRealizado): # Avança se login válido ou Imprim
         menuLogado()
 
 def logout():                               # Animação de logout
-    time.sleep(1.2)
+    # time.sleep(1.2)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
             f'       SAVE ⏇he Oceans       \n'
             f'                              \n'
             f'      Deslogando              \n'
             f'                              \n'
             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ')
-    time.sleep(0.7)
+    # time.sleep(0.7)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
             f'       SAVE ⏇he Oceans       \n'
             f'                              \n'
             f'      Deslogando .            \n'
             f'                              \n'
             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ')
-    time.sleep(0.7)
+    # time.sleep(0.7)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
             f'       SAVE ⏇he Oceans       \n'
             f'                              \n'
             f'      Deslogando . o          \n'
             f'                              \n'
             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ')
-    time.sleep(0.7)
+    # time.sleep(0.7)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
             f'       SAVE ⏇he Oceans       \n'
             f'                              \n'
             f'      Deslogando . o O        \n'
             f'                              \n'
             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ')
-    time.sleep(1.2)
+    # time.sleep(1.2)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
             f'       SAVE ⏇he Oceans       \n'
             f'                              \n'
@@ -265,7 +265,7 @@ def loading():                              # Animação de carregamento entre t
           f'          Loading...          \n'
           f'                              \n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(0.7)
+    # time.sleep(0.7)
 
 def bemVindo():                             # Tela transitória após login validado
     time.sleep(0.5)
@@ -275,7 +275,7 @@ def bemVindo():                             # Tela transitória após login vali
           f' Bem-vindo, {historicoDeNomesLogados[-1]}\n'
           f'                              \n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    # time.sleep(3.5)
 
 def opcoesMenu(opcaoEscolhida, flag):       # Índice de menus: orquestra a troca entre telas
     # print(' Entrou opcoes menu')                                              #[DEBUG]
@@ -447,7 +447,7 @@ def listarTiposReports():                   # Lista os tipos pré-cadastrados po
                     f'{tiposReport[1][0]}. {tiposReport[1][1]}\n'
                     f'{tiposReport[2][0]}. {tiposReport[2][1]}\n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)
+    # time.sleep(5.5)
     print          (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'     # Lista tipos 4-6
                     f'       SAVE ⏇he Oceans         \n'
                     f'{tiposReport[3][0]}. {tiposReport[3][1]}\n'
@@ -484,7 +484,7 @@ def menuNovoReport():                       # Faz denúncia
                     f' Escolha um tipo a seguir:    \n'
                     f'                              \n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    # time.sleep(3.5)
     listarTiposReports()
     respTipo = respostaUsuario('[-] Voltar | → ')
     while respTipo == '-':
@@ -498,7 +498,7 @@ def menuNovoReport():                       # Faz denúncia
                             f' ex: 01/01/2024               \n'
                             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿',[],'')
     respData = notNull(respData,' Quando aconteceu? (Obrigatório)\n')           # Valida se vazio
-    time.sleep(1.2)
+    # time.sleep(1.2)
     print       (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
                 f'       SAVE ⏇he Oceans       \n'
                 f'                              \n'
@@ -530,7 +530,7 @@ def iterarLerReports(filtroDigitado, tipoFiltro, indexDoElemBuscado): #fix
                       f' {r[2]}\n'
                       f' {r[0]} - {r[1]}\n'
                       f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-                time.sleep(5.5)
+                # time.sleep(5.5)
     elif tipoFiltro == 'sigla':
         print()
     elif tipoFiltro == 'antesDe':
@@ -580,7 +580,7 @@ def menuBuscarDenuncia(): #fix
               f' {r[2]}\n'
               f' {r[0]} - {r[1]}\n'
               f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-        time.sleep(5.5)
+        # time.sleep(5.5)
 
     imprimirMenu(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿ \n'
                  f'       SAVE ⏇he Oceans        \n'
@@ -604,7 +604,7 @@ def menuLerReport(): #fix # Pede o filtro de busca
                       f' Escolha um filtro a seguir:  \n'
                       f'                              \n'
                       f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    # time.sleep(3.5)
     respFiltro = imprimirMenu(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿ \n'      # Lista os filtros
                               f'       SAVE ⏇he Oceans        \n'
                               f' 1. Por Sigla                  \n'
@@ -645,14 +645,14 @@ def menuSouPF():                            # Fornece link de ONG
                     f'   Faça parte da luta por    \n'
                     f'      um \033[4mmundo melhor\033[0m!       \n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)
+    # time.sleep(5.5)
     print          (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
                     f'       SAVE ⏇he Oceans       \n'
                     f' Para mais informações, acesse:\n'
                     f' https://parceirosdomar.org/  \n'
                     f'   Seja um \033[4mParceiro do Mar!\033[0m   \n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)
+    # time.sleep(5.5)
     menuLogado()
     
 def menuSouPJ():                            # Pede dados da empresa para fazer parceria (apenas visual)
@@ -662,7 +662,7 @@ def menuSouPJ():                            # Pede dados da empresa para fazer p
                     f'      um mundo melhor?        \n'
                     f'    \033[4mSeja nosso parceiro\033[0m!      \n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)
+    # time.sleep(5.5)
     resposta = imprimirMenu(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
                             f'       SAVE ⏇he Oceans       \n'
                             f' \033[4mFormulário de Parceria\033[0m:      \n'
@@ -690,7 +690,7 @@ def menuSouPJ():                            # Pede dados da empresa para fazer p
                     f'    \033[4mFormulário recebido!\033[0m      \n'
                     f'        Agradecemos!          \n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)         # Dados: são descartados ao término do formulário
+    # time.sleep(5.5)         # Dados: são descartados ao término do formulário
     menuLogado()
     
 def menuMeuPerfil():
@@ -709,7 +709,7 @@ def menuMeusDados():                        # Imprime os dados cadastrais do usu
                     f' Usuário: {historicoUserSenhaLogados[-1][0]}\n'
                     f' Senha: {historicoUserSenhaLogados[-1][1]}\n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)
+    # time.sleep(5.5)
     menuMeuPerfil()
     
 def menuMinhasDenuncias():                  # Lista as denúncias que o usuário fez
@@ -720,7 +720,7 @@ def menuMinhasDenuncias():                  # Lista as denúncias que o usuário
                f' denúncia. Fique à vontade    \n'
                f'  para contribuir conosco!    \n'
                f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-        time.sleep(5.5)
+        # time.sleep(5.5)
     else:
         for r in meusReports:                           # Caso 2: Denunciou, lista ela(s)
             for t in tiposReport:
@@ -732,7 +732,7 @@ def menuMinhasDenuncias():                  # Lista as denúncias que o usuário
                    f' {r[2]}\n'
                    f' {r[0]} - {r[1]}\n'
                    f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-            time.sleep(5.5)
+            # time.sleep(5.5)
     menuMeuPerfil()
 
 # ==============================================================================================================================================
