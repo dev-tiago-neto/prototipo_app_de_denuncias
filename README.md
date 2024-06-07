@@ -8,7 +8,7 @@ Há o armazenamento de dados em uma estrutura de lista, mas que é perdido ao en
 
 ## Funcionalidades
 
-- **Cadastro de Usuário**: Permite que novos usuários se cadastrem no sistema fornecendo um nome de usuário, email e senha.
+- **Cadastro de Usuário**: Permite que novos usuários se cadastrem no sistema fornecendo um nome, usuário e senha.
 - **Login de Usuário**: Permite que usuários registrados façam login no sistema para acessar as funcionalidades do aplicativo.
 - **Envio de Denúncia**: Permite que usuários registrados enviem denúncias, incluindo o local, cidade, estado, data e categoria para classificar a denúncia.
 - **Listagem de Denúncias**: Exibe todas as denúncias cadastradas no sistema a partir de um filtro escolhido, permitindo uma visualização triada das informações que interessam.
