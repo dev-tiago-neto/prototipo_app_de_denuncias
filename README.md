@@ -10,15 +10,21 @@ Este protótipo de aplicativo de denúncias foi desenvolvido como parte de um pr
 - **Listagem de Denúncias**: Exibe todas as denúncias cadastradas no sistema, permitindo uma visualização rápida e organizada das informações.
 - **Detalhes da Denúncia**: Ao clicar em uma denúncia listada, é possível visualizar detalhes adicionais da denúncia, como a data de envio e o autor da denúncia.
 
-## Pré-requisitos
+# Instruções
 
-Para executar o protótipo em sua máquina local, é necessário ter instalado o Python 3.x juntamente com as seguintes bibliotecas:
+- Para rodar o software, execute "código.py".
+- Para uma experiência melhor, redimensione a altura do terminal para caber apenas 7 linhas de output.
+- Navegue pelos menus digitando o número do menu que quer acessar e clique <enter>.
 
-- Flask
-- Flask-RESTful
-- Flask-Bootstrap
+# Dependências
 
-Você pode instalar as dependências utilizando o arquivo `requirements.txt` fornecido no repositório
+- Bibliotecas "time" e "datetime".
+- Terminal/Output console que suporte "ANSI escape codes" para formatar a saída em terminais de texto (Recomendado: Microsoft VSCode).
+
+# Repositório Remoto
+
+- [GitHub - dev-tiago-neto/prototipo_app_de_denuncias](https://github.com/dev-tiago-neto/prototipo_app_de_denuncias)
+
 
 ## Contribuindo
 
