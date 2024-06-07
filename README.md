@@ -17,7 +17,7 @@ Há o armazenamento de dados em uma estrutura de lista, mas que é perdido ao en
 
 - **Rodando o Software**: Para rodar o software, execute o arquivo "código.py".
 - **Ajuste de Tela**: Para uma experiência melhor, redimensione a altura do terminal para caberem exatamente 7 linhas de output.
-- **Navegação no Aplicativo**: Navegue pelos menus digitando o número do menu desejado e clique <enter>.
+- **Navegação no Aplicativo**: Navegue pelos menus digitando o número do menu desejado e clique Enter.
 
 ## Dependências
 
