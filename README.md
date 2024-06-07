@@ -10,27 +10,31 @@ Este protótipo de aplicativo de denúncias foi desenvolvido como parte de um pr
 - **Listagem de Denúncias**: Exibe todas as denúncias cadastradas no sistema, permitindo uma visualização rápida e organizada das informações.
 - **Detalhes da Denúncia**: Ao clicar em uma denúncia listada, é possível visualizar detalhes adicionais da denúncia, como a data de envio e o autor da denúncia.
 
-# Instruções
+## Instruções de Uso
 
-- Para rodar o software, execute "código.py".
-- Para uma experiência melhor, redimensione a altura do terminal para caber apenas 7 linhas de output.
-- Navegue pelos menus digitando o número do menu que quer acessar e clique <enter>.
+- **Rodando o Software**: Para rodar o software, execute o arquivo "código.py".
+- **Ajuste de Terminal**: Para uma experiência melhor, redimensione a altura do terminal para caber apenas 7 linhas de output.
+- **Navegação no Aplicativo**: Navegue pelos menus digitando o número do menu desejado e clique <enter>.
 
-# Dependências
+## Dependências
 
-- Bibliotecas "time" e "datetime".
-- Terminal/Output console que suporte "ANSI escape codes" para formatar a saída em terminais de texto (Recomendado: Microsoft VSCode).
+- **Bibliotecas**: "time" e "datetime".
+- **Terminal**: Output console que suporte "ANSI escape codes" para formatação da saída em terminais de texto (Recomendado: Microsoft VSCode).
 
-# Repositório Remoto
+## Código em funcionamento
+
+![2528f27b-12e4-453a-9794-5ccb5177ace1](https://github.com/dev-tiago-neto/prototipo_app_de_denuncias/assets/161903325/369f0f20-e5b0-4f72-bba5-aa526dd0b208)
+
+## Contribuição
+
+Sinta-se à vontade para contribuir com melhorias ou correções de bugs. Abra uma issue detalhando sua proposta ou envie um pull request com as alterações desejadas.
+
+## Repositório Remoto
 
 - [GitHub - dev-tiago-neto/prototipo_app_de_denuncias](https://github.com/dev-tiago-neto/prototipo_app_de_denuncias)
 
-
-## Contribuindo
-
-Sinta-se à vontade para contribuir com melhorias ou correções de bugs. Para isso, basta abrir uma issue detalhando a sua proposta ou enviar um pull request com as alterações desejadas.
-
 ## Membros do Grupo
+
 
 - Caio Venancio (RM: 556030)
 - David Cordeiro (RM: 557538)
