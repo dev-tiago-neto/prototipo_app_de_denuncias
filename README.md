@@ -1,6 +1,6 @@
 # Protótipo de Aplicativo de Denúncias
 
-Este protótipo de aplicativo de denúncias foi desenvolvido como parte de um projeto para facilitar o processo de registro e acompanhamento de denúncias por parte dos usuários. Utilizando tecnologias como Python, Flask e Bootstrap, o protótipo oferece uma interface simples e intuitiva para o envio e visualização de denúncias.
+Este protótipo de aplicativo de denúncias foi desenvolvido como parte de um projeto para facilitar o processo de registro e acompanhamento de denúncias por parte dos usuários. Utilizando a linguagem Python como base, o protótipo oferece uma interface simples e intuitiva para o envio e visualização de denúncias.
 
 ## Funcionalidades
 
