@@ -51,6 +51,7 @@ explicativos, estruturação lógica do código e atendendo aos prérequisitos s
 # DEPENCÊNCIAS:
 # Bibliotecas "time" e "datetime"
 # Terminal/Output console que suporte "ANSI escape codes", para formatar a saída em terminais de texto (Recomendado: Microsoft VSCode)
+# Terminal/Outpur console que suporte Unicode 
 
 # REPOSITÓRIO REMOTO: 
 # https://github.com/dev-tiago-neto/prototipo_app_de_denuncias
@@ -120,12 +121,6 @@ def respostaUsuario(msg):                   # Pedir inputs (2 casos: msg padrao 
         resposta = input(msg)           # Caso 2: Input customizado
     return resposta
 
-def naLista(listaOpcoes, resposta):         # Varre lista procurando elemento; Out: true/false
-    for opcao in listaOpcoes:
-        if resposta == opcao:
-            return True
-    return False
-
 def printarLista(listaOpcoes):              # Imprime todos os elementos de lista
     for elemento in listaOpcoes:
         if listaOpcoes == allReports:                           # Caso Debug do banco de dados de denúncias: quebra de linha
@@ -137,6 +132,12 @@ def pegarIndice(elem, listaAnalisada):      # Pega o índice de um elemento em u
     for i in range(len(listaAnalisada)):
         if elem == listaAnalisada[i]:
             return i
+
+def naLista(listaOpcoes, resposta):         # Varre lista procurando elemento; Out: true/false
+    for opcao in listaOpcoes:
+        if resposta == opcao:
+            return True
+    return False
 
 def repetirPedido(resposta,listaOpcoes):    # Pede outro input se input não é opção válida
     # print(' Entrou repetir pedido')                           #[DEBUG]
@@ -170,12 +171,12 @@ def validarOpcao(listaOpcoes, resposta):    # Função para validar se input é 
 def imprimirMenu(tela, listaOpcoes, flag):  # Função genérica para gerar menus
     # print(' Entrou Menu')                 #[DEBUG]
     print(tela)         
-    if flag == '' and listaOpcoes == []:                        # Caso 1: menu sem opções (ex: login)
+    if flag == '' and listaOpcoes == []:                        # Caso 1: menu sem opções (ex: login), só pega o input
         # print(' Entrou caso 1')           #[DEBUG]
         variavel = respostaUsuario('')
         return variavel
     # print(' Entrou Caso 2')               #[DEBUG]
-    resposta = validarOpcao(listaOpcoes,'')                     # Caso 2: menu com várias opções
+    resposta = validarOpcao(listaOpcoes,'')                     # Caso 2: menu com várias opções, pede o input até ser válido
     # print(f'respposta pos validaropcao(): {resposta} {type(resposta)}')       #[DEBUG]
     # print(' Saiu validar opcao, de volta pra menu')                           #[DEBUG]
     # print(f' flag = {flag}')                                                  #[DEBUG]
@@ -424,7 +425,7 @@ def menuCadastro():                         # Cadastra novo usuário
 def menuLogado():
     resposta = imprimirMenu(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
                             f'       SAVE ⏇he Oceans       \n'
-                            f' 1. Denunciar                 \n'
+                            f' 1. Denúncias                 \n'
                             f' 2. Quero fazer a diferença!  \n'
                             f' 3. Meu perfil     0. Logout  \n'
                             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ',codigoSubmenus[4][0],2)
@@ -511,91 +512,93 @@ def menuNovoReport():                       # Faz denúncia
     meusReports.append(novoReport)
     opcoesMenu(1,flag = 2)
 
-def pegaOTipo(tipoDoElemento):              # A partir do número do tipo, pega a string associada a ele
-    for sublista in tiposReport:
-        if sublista[0] == tipoDoElemento:
-            return sublista[1]
+def PegaOLabelDoTipoPeloNumero(num):              # A partir do número do tipo, pega a string associada a ele
+    for tipo in tiposReport:    # Sublista: [num,label]
+        if tipo[0] == num:      # Pinça qual sublista tem o número do tipo desejado
+            return tipo[1]      # Da sublista, retorna o label
 
-def iterarLerReports(filtroDigitado, tipoFiltro, indexDoElemBuscado): #fix
-    if tipoFiltro == 'tipo':
-        for i in range(len(allReports)):
-            if filtroDigitado == allReports[i][indexDoElemBuscado]:
-                # print(f'tipoFiltro = {tipoFiltro}\nallReports[i][i] = {allReports[i][indexDoElemBuscado]}')     #[DEBUG]
-                for t in tiposReport:
-                    if r[3] == t[0]:
-                        tempTipo = t[1]
-                print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿ \n'
-                      f'       SAVE ⏇he Oceans       \n'
-                      f' {tempTipo}, {r[4]}\n'                 # meusReports = [Estado, Cidade, Local, Tipo, Data]
-                      f' {r[2]}\n'
-                      f' {r[0]} - {r[1]}\n'
-                      f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-                time.sleep(5.5)
-    elif tipoFiltro == 'sigla':
-        print()
-    elif tipoFiltro == 'antesDe':
-        print()
-    else:               #depoisDe
-        print()
-    return
+def triarReportPorSigla(filtroDigitado, indexSigla): # Busca denúncias pelo filtro de Tipo de denúncia, adicionando-as em uma lista
+    denunciasFiltradas = []
+    qnt = 0
+    for i in range(len(allReports)):
+        if allReports[i][indexSigla] == filtroDigitado:
+            denunciasFiltradas.append(allReports[i])
+            qnt += 1
+    quantidadeFiltradas.append(qnt)
+    return denunciasFiltradas
+
+def triarReportPorTipo(filtroDigitado, indexTipo): # Busca denúncias pelo filtro de Tipo de denúncia, adicionando-as em uma lista
+    denunciasFiltradas = []
+    qnt = 0
+    print(f'allreports = {allReports}')
+    for i in range(len(allReports)):
+        if allReports[i][indexTipo] == filtroDigitado:
+            denunciasFiltradas.append(allReports[i])
+            qnt += 1
+    quantidadeFiltradas.append(qnt)
+    return denunciasFiltradas
+
+def triarReportPorAntesDe(filtroDigitado, indexData): # Busca denúncias pelo filtro de Tipo de denúncia, adicionando-as em uma lista
+    print() # FIX!
+
+def triarReportPorDepoisDe(filtroDigitado, indexData): # Busca denúncias pelo filtro de Tipo de denúncia, adicionando-as em uma lista
+    print() # FIX!
+
+def ImprimeReportsBuscados(d):
+    for i in range(len(d)):
+                    t = PegaOLabelDoTipoPeloNumero(d[i][3])
+                    print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿ \n'
+                          f'       SAVE ⏇he Oceans       \n'
+                          f' {t}, {d[i][4]}\n'                 # meusReports = [Estado, Cidade, Local, Tipo, Data]
+                          f' {d[i][2]}\n'
+                          f' {d[i][0]} - {d[i][1]}    {i+1}/{quantidadeFiltradas[-1]}\n'
+                          f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
+                    time.sleep(3.5)
+
 
 """ allReports =  [['PE','Ipojuca','Praia de Porto de Galinhas',1,'02/09/2019'],
-               ['RN','Tibau do Sul','Praia da Pipa',1,'10/09/2019'],
-               ['AL','Marechal Deodoro','Praia do Francês',1,'18/09/2019'],
-               ['PE','Ipojuca','Praia de Porto de Galinhas',1,'04/11/2019'],
-               ['AL','Roteiro','Praia do Gunga',1,'13/11/2019'],
-               ['AL','Roteiro','Praia do Gunga',1,'25/11/2019'],
-               ['RN','Natal','Praia de Miami',2,'07/04/2024'],
-               ['RJ','Rio de Janeiro','Praia de São Conrado',3,'30/01/2024'],
-               ['PE','Tamandaré','Praia de Carneiros',3,'08/04/2024'],
-               ['PB','João Pessoa','Hotel Nord Easy',3,'10/05/2024'],
-               ['PR','Porecatu','Rio Paranapanema',4,'01/06/2024'],
-               ['MS','Bonito','Rio Formoso',4,'03/06/2024'],
-               ['BA','São Francisco do Conde','Baía de Todos-os-Santos',5,'25/08/2023'],
-               ['BA','Ilha de Itaparica','Praia da Ponta do Mocambo',5,'18/12/2023'],
-               ['SP','Lucélia','Rio Aguapeí',6,'30/11/2023'],
-               ['RJ','Maricá','Litoral de Maricá',6,'28/02/2024'],
-               ['SP','Guarujá','Rio do Meio',6,'27/05/2024']
-               ] """
+                   ['RN','Tibau do Sul','Praia da Pipa',1,'10/09/2019'],
+                   ['AL','Marechal Deodoro','Praia do Francês',1,'18/09/2019'],
+                   ['PE','Ipojuca','Praia de Porto de Galinhas',1,'04/11/2019'],
+                   ['AL','Roteiro','Praia do Gunga',1,'13/11/2019'],
+                   ['AL','Roteiro','Praia do Gunga',1,'25/11/2019'],
+                   ['RN','Natal','Praia de Miami',2,'07/04/2024'],
+                   ['RJ','Rio de Janeiro','Praia de São Conrado',3,'30/01/2024'],
+                   ['PE','Tamandaré','Praia de Carneiros',3,'08/04/2024'],
+                   ['PB','João Pessoa','Hotel Nord Easy',3,'10/05/2024'],
+                   ['PR','Porecatu','Rio Paranapanema',4,'01/06/2024'],
+                   ['MS','Bonito','Rio Formoso',4,'03/06/2024'],
+                   ['BA','São Francisco do Conde','Baía de Todos-os-Santos',5,'25/08/2023'],
+                   ['BA','Ilha de Itaparica','Praia da Ponta do Mocambo',5,'18/12/2023'],
+                   ['SP','Lucélia','Rio Aguapeí',6,'30/11/2023'],
+                   ['RJ','Maricá','Litoral de Maricá',6,'28/02/2024'],
+                   ['SP','Guarujá','Rio do Meio',6,'27/05/2024']
+                   ] """
 
-def casosFiltroBusca(filtroDigitado, tipoFiltro): #fix
+def casosFiltroBusca(filtroDigitado, tipoFiltro):           # Imprime as denúncias filtradas pelo filtro escolhido
     match tipoFiltro:
-        case 'tipo':
-            iterarLerReports(filtroDigitado, tipoFiltro='tipo', indexDoElemBuscado=3)
-        case 'sigla':
-            iterarLerReports()
-        case 'antesDe':
-            iterarLerReports()
-        case 'depoisDe':
-            iterarLerReports()
+        case 'sigla':       # indice de Sigla em allReports: 0
+            dEncontradas = triarReportPorSigla(filtroDigitado, indexSigla=0)    # Tria a lista de denúncias e retorna lista só com denúncias com o filtro
+        case 'tipo':        # indice de Tipo em allReports: 3
+            dEncontradas = triarReportPorTipo(filtroDigitado,indexTipo=3)
+            ImprimeReportsBuscados(dEncontradas)
+        case 'antesDe':     # indice de Data em allReports: 4
+            dEncontradas = triarReportPorAntesDe(filtroDigitado, indexData=4)
+        case 'depoisDe':    # indice de Data em allReports: 4
+            dEncontradas = triarReportPorDepoisDe(filtroDigitado, indexData=4)
 
-def menuBuscarDenuncia(): #fix
-    for r in allReports:                           # Caso 2: Denunciou, lista ela(s)
-        for t in tiposReport:
-            if r[3] == t[0]:
-                tempTipo = t[1]
-        print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿ \n'
-              f'       SAVE ⏇he Oceans       \n'
-              f' {tempTipo}, {r[4]}\n'                 # meusReports = [Estado, Cidade, Local, Tipo, Data]
-              f' {r[2]}\n'
-              f' {r[0]} - {r[1]}\n'
-              f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-        time.sleep(5.5)
+    # pedir filtro
+    # cai no case daquele filtro
+    # triar allReports buscando sublistas com aquele ou < ou > filtro
+    # dá append nessa denuncia em uma lista
+    # imprime essa lista[
 
-    imprimirMenu(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿ \n'
-                 f'       SAVE ⏇he Oceans        \n'
-                 f' \n'
-                 f' \n'
-                 f' \n'
-                 f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿',[],'')
-    print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿ \n'
+"""  print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿ \n'
            f'       SAVE ⏇he Oceans        \n'
            f' Pesca com explosivos, 25/08/2023\n'
            f' Baía de Todos-os-Santos       \n'
            f' BA - São Francisco do Conde   \n'
-           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿',)
-    # ['BA','São Francisco do Conde','Baía de Todos-os-Santos',5,'25/08/2023'],
-    # [5,'Pesca com explosivos'],
+           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿',) """
 
 def menuLerReport(): #fix # Pede o filtro de busca
     print            (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
@@ -613,12 +616,32 @@ def menuLerReport(): #fix # Pede o filtro de busca
                               f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿',codigoSubmenus[9][0],flag = 4)
     opcoesMenu(respFiltro,flag = 4)
 
-def menuLerPorSigla(): #fix
-    print('Entrou menuLerPorSigla')
+def menuLerPorSigla():
+    respFiltro = imprimirMenu(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿ \n'      # Lista os filtros
+                              f'       SAVE ⏇he Oceans        \n'
+                              f'                               \n'
+                              f' Digite a sigla desejada:      \n'
+                              f'                               \n'
+                              f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿',listaSiglas,'')
+    time.sleep(3.5)
+    casosFiltroBusca(respFiltro, tipoFiltro='sigla')
     menuReport()
     
 def menuLerPorTipo(): #fix
-    print('Entrou menuLerPorTipo')
+    print          (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'     # Pede o tipo
+                    f'       SAVE ⏇he Oceans     \n'
+                    f'                            \n'
+                    f' Escolha um tipo a seguir:  \n'
+                    f'                            \n'
+                    f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
+    time.sleep(3.5)
+    listarTiposReports()
+    respTipo = respostaUsuario('[-] Voltar | → ')
+    while respTipo == '-':
+        listarTiposReports()
+        respTipo = respostaUsuario('[-] Voltar | → ')
+    respTipo = validarOpcao(codigoSubmenus[8][0], respTipo)
+    casosFiltroBusca(respTipo, tipoFiltro='tipo')
     menuReport()
     
 def menuLerPorAntesDe(): #fix
@@ -793,6 +816,7 @@ allReports =  [['PE','Ipojuca','Praia de Porto de Galinhas',1,'02/09/2019'],
                ['SP','Guarujá','Rio do Meio',6,'27/05/2024']
                ]
 meusReports = []        # "Minhas Denúncias", começa vazio
+quantidadeFiltradas = []# Pega o total de denúncias filtradas, variável global modificada ao realizar uma busca
 
 listaSiglas = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO',
                'ac', 'al', 'ap', 'am', 'ba', 'ce', 'df', 'es', 'go', 'ma', 'mt', 'ms', 'mg', 'pa', 'pb', 'pr', 'pe', 'pi', 'rj', 'rn', 'rs', 'ro', 'rr', 'sc', 'sp', 'se', 'to',
