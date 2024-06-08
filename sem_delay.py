@@ -89,32 +89,31 @@ def init():                                 # Animação de entrada
           f'         ⏇he Oceans\n'
           f'\n'
           f'∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~')
-    time.sleep(1.2)
+    time.sleep(0.1)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
           f'   ﹡               ﹡\n'
           f'       SAVE              ⚹\n'
           f' ٭       ⏇he Oceans\n'
           f'     *                 ✧\n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(0.7)
+    time.sleep(0.10)
     print(f'∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~\n'
           f'  ﹡                 ﹡\n'
           f'       SAVE               ⚹\n'
           f'٭        ⏇he Oceans\n'
           f'    *                   ✧\n'
           f'∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~')
-    time.sleep(0.7)
+    time.sleep(0.1)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
           f'   ﹡               ﹡\n'
           f'       SAVE              ⚹\n'
           f' ٭       ⏇he Oceans\n'
           f'     *                 ✧\n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(2.2)
+    time.sleep(0.1)
     print(f'\n\n\n\n\n')
 
 def respostaUsuario(msg):                   # Pedir inputs (2 casos: msg padrao ou personalizada)
-    # print(' Entrou resposta usuario')         #[DEBUG]
     if msg == '':
         resposta = input(' → ')         # Caso 1: Input padrão
     else:
@@ -140,9 +139,7 @@ def naLista(listaOpcoes, resposta):         # Varre lista procurando elemento; O
     return False
 
 def repetirPedido(resposta,listaOpcoes):    # Pede outro input se input não é opção válida
-    # print(' Entrou repetir pedido')                           #[DEBUG]
     while not (naLista(listaOpcoes, resposta)):         # Repete até o input ser válido
-        # print(' Entrou no while')                             #[DEBUG]
         print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
               f'      SAVE ⏇he Oceans\n'
               f'\n'
@@ -159,27 +156,19 @@ def repetirPedido(resposta,listaOpcoes):    # Pede outro input se input não é 
     return resposta
 
 def validarOpcao(listaOpcoes, resposta):    # Função para validar se input é válido
-    # print(' Entrou validar opcoes')                           #[DEBUG]
     if resposta == '':
         resposta = respostaUsuario('')
     if resposta.isnumeric():            # Checa se é numérico para validarOpcao()
         resposta = int(resposta)
     resposta = repetirPedido(resposta, listaOpcoes)
-    # print(f' Saiu repetirPedido com resposta = {resposta}')   #[DEBUG]
     return resposta                     # Retorna uma resposta válida (pertencente à lista de opções recebida)
 
 def imprimirMenu(tela, listaOpcoes, flag):  # Função genérica para gerar menus
-    # print(' Entrou Menu')                 #[DEBUG]
     print(tela)         
     if flag == '' and listaOpcoes == []:                        # Caso 1: menu sem opções (ex: login), só pega o input
-        # print(' Entrou caso 1')           #[DEBUG]
         variavel = respostaUsuario('')
         return variavel
-    # print(' Entrou Caso 2')               #[DEBUG]
     resposta = validarOpcao(listaOpcoes,'')                     # Caso 2: menu com várias opções, pede o input até ser válido
-    # print(f'respposta pos validaropcao(): {resposta} {type(resposta)}')       #[DEBUG]
-    # print(' Saiu validar opcao, de volta pra menu')                           #[DEBUG]
-    # print(f' flag = {flag}')                                                  #[DEBUG]
     opcoesMenu(resposta,flag)
 
 def tentaLogin(userTentativa,pwTentativa):  # Cruza [user,senha] de input com a base
@@ -204,49 +193,49 @@ def tryUserNotFoundOrLogin(loginRealizado): # Avança se login válido ou Imprim
                     f'   Usuário não encontrado!\n'
                     f'\n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ')
-            time.sleep(2)
+            time.sleep(0.1)
             menuInicial()
     if (loginRealizado):                # Login válido: progride ao próximo menu
         bemVindo()
         menuLogado()
 
 def logout():                               # Animação de logout
-    time.sleep(1.2)
+    time.sleep(0.1)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
             f'       SAVE ⏇he Oceans\n'
             f'\n'
             f'      Deslogando\n'
             f'\n'
             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ')
-    time.sleep(0.7)
+    time.sleep(0.1)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
             f'       SAVE ⏇he Oceans\n'
             f'\n'
             f'      Deslogando .\n'
             f'\n'
             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ')
-    time.sleep(0.7)
+    time.sleep(0.1)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
             f'       SAVE ⏇he Oceans\n'
             f'\n'
             f'      Deslogando . o\n'
             f'\n'
             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ')
-    time.sleep(0.7)
+    time.sleep(0.1)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
             f'       SAVE ⏇he Oceans\n'
             f'\n'
             f'      Deslogando . o O\n'
             f'\n'
             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ')
-    time.sleep(1.2)
+    time.sleep(0.1)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
             f'       SAVE ⏇he Oceans\n'
             f'\n'
             f'      Logout Efetuado!\n'
             f'\n'
             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿  ')
-    time.sleep(2.2)
+    time.sleep(0.1)
 
 def notNull(resposta, msg):                 # Imprime "obrigatório" ao enviar input vazio
     while resposta == '':
@@ -259,40 +248,34 @@ def notNull(resposta, msg):                 # Imprime "obrigatório" ao enviar i
     return resposta
 
 def loading():                              # Animação de carregamento entre transições de tela
-    time.sleep(0.5)
+    time.sleep(0.1)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
           f'       SAVE ⏇he Oceans\n'
           f'\n'
           f'          Loading...\n'
           f'\n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(0.7)
+    time.sleep(0.1)
 
 def bemVindo():                             # Tela transitória após login validado
-    time.sleep(0.5)
+    time.sleep(0.1)
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
           f'       SAVE ⏇he Oceans\n'
           f'\n'
           f' Bem-vindo, {historicoDeNomesLogados[-1]}\n'
           f'\n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    time.sleep(0.1)
 
 def opcoesMenu(opcaoEscolhida, flag):       # Índice de menus: orquestra a troca entre telas
-    # print(' Entrou opcoes menu')                                              #[DEBUG]
-    # print(f' opcaoEscolhida ={opcaoEscolhida} {type(opcaoEscolhida)}')        #[DEBUG]
     if opcaoEscolhida == None: return
     loading()
-    # print(f' opcaoEscolhida ={opcaoEscolhida} {type(opcaoEscolhida)}')        #[DEBUG]
     match flag:
         case 1:
-            # print(' entrou flag = 1')                                         #[DEBUG]
             opcaoEscolhida += 10
         case 2:
-            # print(' entrou flag = 2')                                         #[DEBUG]
             opcaoEscolhida += 20
         case 3:
-            # print(' entrou flag = 3')                                         #[DEBUG]
             opcaoEscolhida += 210
         case 4:
             opcaoEscolhida += 2120
@@ -300,18 +283,14 @@ def opcoesMenu(opcaoEscolhida, flag):       # Índice de menus: orquestra a troc
             opcaoEscolhida += 220
         case 6:
             opcaoEscolhida += 230
-    # print(f' opcaoEscolhida ={opcaoEscolhida} {type(opcaoEscolhida)}')        #[DEBUG]
     match opcaoEscolhida:
         case 10:                                    # Menu inicial > <end>
-            # print(' entrou case = 10')                                        #[DEBUG]
             print('\n\n\n\n\n Até a Próxima!')
             return  # Encerra o software
         case 11:
-            # print(' entrou login')                                            #[DEBUG]
             loginRealizado = menuLogin()
             tryUserNotFoundOrLogin(loginRealizado)  # Menu inicial > Menu Logado
         case 12:
-            # print(' entrou cadastro')                                         #[DEBUG]
             menuCadastro()                  # Menu inicial > Cadastro
             menuInicial()                   # Cadastro > Menu inicial
         case 20:
@@ -351,7 +330,6 @@ def opcoesMenu(opcaoEscolhida, flag):       # Índice de menus: orquestra a troc
             menuMinhasDenuncias()           # Menu Meu perfil > Menu Minhas Denúncias
         case _:
             print("Opção não cadastrada")   # Caso de erro
-    # print(' saiu do 2º switch case')                                          #[DEBUG]
 
 def menuInicial():
     # print(' Entrou Menu inicial')
@@ -420,7 +398,7 @@ def menuCadastro():                         # Cadastra novo usuário
             f'     Cadastro Realizado!\n'
             f'    Bem-vindo, {respNome.title()}!\n'
             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(2.2)
+    time.sleep(0.1)
     
 def menuLogado():
     resposta = imprimirMenu(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
@@ -448,7 +426,7 @@ def listarTiposReports():                   # Lista os tipos pré-cadastrados po
                     f'{tiposReport[1][0]}. {tiposReport[1][1]}\n'
                     f'{tiposReport[2][0]}. {tiposReport[2][1]}\n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)
+    time.sleep(0.1)
     print          (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'     # Lista tipos 4-6
                     f'       SAVE ⏇he Oceans\n'
                     f'{tiposReport[3][0]}. {tiposReport[3][1]}\n'
@@ -485,7 +463,7 @@ def menuNovoReport():                       # Faz denúncia
                     f' Escolha um tipo a seguir:\n'
                     f'\n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    time.sleep(0.1)
     listarTiposReports()
     respTipo = respostaUsuario('[-] Voltar | → ')
     while respTipo == '-':
@@ -499,14 +477,14 @@ def menuNovoReport():                       # Faz denúncia
                             f' ex: 01/01/2024\n'
                             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿',[],'')
     respData = notNull(respData,' Quando aconteceu? (Obrigatório)\n')           # Valida se vazio
-    time.sleep(1.2)
+    time.sleep(0.1)
     print       (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
                 f'       SAVE ⏇he Oceans\n'
                 f'\n'
                 f'          Obrigado!\n'
                 f' Sua denúncia fará a diferença!\n'
                 f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    time.sleep(0.1)
     novoReport = [respEstado, respCidade, respLocal, respTipo, respData]
     allReports.append(novoReport)
     meusReports.append(novoReport)
@@ -518,7 +496,6 @@ def PegaOLabelDoTipoPeloNumero(num):              # A partir do número do tipo,
             return tipo[1]      # Da sublista, retorna o label
 
 def triarReportPorSigla(filtroDigitado, indexSigla): # Busca denúncias pelo filtro de Tipo de denúncia, adicionando-as em uma lista
-    # print(f'entrou report por sigla') #[DEBUG]
     denunciasFiltradas = []
     qnt = 0
     for i in range(len(allReports)):                    # Varre a lista de todas as denúncias
@@ -531,7 +508,6 @@ def triarReportPorSigla(filtroDigitado, indexSigla): # Busca denúncias pelo fil
 def triarReportPorTipo(filtroDigitado, indexTipo): # Busca denúncias pelo filtro de Tipo de denúncia, adicionando-as em uma lista
     denunciasFiltradas = []
     qnt = 0
-    # print(f'allreports = {allReports}')     #[DEBUG]
     for i in range(len(allReports)):
         if allReports[i][indexTipo] == filtroDigitado:
             denunciasFiltradas.append(allReports[i])
@@ -569,7 +545,6 @@ def triarReportPorDepoisDe(filtroDigitado, indexData): # Busca denúncias pelo f
     return denunciasFiltradas
 
 def ImprimeReportsBuscados(d):
-    # print(f'entrou ImprimeReportsBuscados') #[DEBUG]
     for i in range(len(d)):
                     t = PegaOLabelDoTipoPeloNumero(d[i][3])
                     print   (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~\n'
@@ -578,7 +553,7 @@ def ImprimeReportsBuscados(d):
                              f' {d[i][2]}\n'
                              f' {d[i][0]} - {d[i][1]}    {i+1}/{quantidadeFiltradas[-1]}\n'
                              f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-                    time.sleep(3.5)
+                    time.sleep(0.1)
                     """print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~\n'
                              f'       SAVE ⏇he Oceans\n'
                              f' Pesca com explosivos, 25/08/2023\n'
@@ -609,9 +584,7 @@ def ImprimeReportsBuscados(d):
 def casosFiltroBusca(filtroDigitado, tipoFiltro):           # Imprime as denúncias filtradas pelo filtro escolhido
     match tipoFiltro:
         case 'sigla':       # indice de Sigla em allReports: 0
-            # print(f'entrou casosFiltroBusca > case sigla') #[DEBUG]
             dEncontradas = triarReportPorSigla(filtroDigitado, indexSigla=0)    # Tria a lista de denúncias e retorna lista só com denúncias com o filtro
-            # print(f'dEncontradas = {dEncontradas}') #[DEBUG]
             ImprimeReportsBuscados(dEncontradas)
         case 'tipo':        # indice de Tipo em allReports: 3
             dEncontradas = triarReportPorTipo(filtroDigitado,indexTipo=3)
@@ -624,14 +597,13 @@ def casosFiltroBusca(filtroDigitado, tipoFiltro):           # Imprime as denúnc
             ImprimeReportsBuscados(dEncontradas)
 
 def menuLerReport(): #fix # Pede o filtro de busca
-    # print(f'entrou menuLerReport') #[DEBUG]
     print            (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
                       f'       SAVE ⏇he Oceans\n'
                       f'\n'
                       f' Escolha um filtro a seguir:\n'
                       f'\n'
                       f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    time.sleep(0.1)
     respFiltro = imprimirMenu(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'      # Lista os filtros
                               f'       SAVE ⏇he Oceans\n'
                               f' 1. Por Estado\n'
@@ -641,29 +613,26 @@ def menuLerReport(): #fix # Pede o filtro de busca
     opcoesMenu(respFiltro,flag = 4)
 
 def menuLerPorSigla():
-    # print(f'entrou menuLerPorSigla') #[DEBUG]
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
           f'       SAVE ⏇he Oceans\n'
           f'\n'
           f' Digite a sigla desejada:\n'
           f'\n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    time.sleep(0.1)
     respSigla = respostaUsuario('')                     # Pede input sem mensagem customizada
     respSigla = validarOpcao(listaSiglas, respSigla)    # Valida o input até que esteja entre as opções possíveis
-    # print(f'respSigla = {respSigla}') #[DEBUG]
     casosFiltroBusca(respSigla, tipoFiltro='sigla')
     menuReport()
     
 def menuLerPorTipo():
-    # print(f'entrou menuLerPorTipo') #[DEBUG]
     print          (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~\n'
                     f'       SAVE ⏇he Oceans\n'
                     f'\n'
                     f' Escolha uma categoria:\n'
                     f'\n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    time.sleep(0.1)
     listarTiposReports()                                # Lista os tipos de denúncia
     respTipo = respostaUsuario('[-] Voltar | → ')       # Pede o tipo com mensagem personalizada
     while respTipo == '-':                              # Se input for ' - ', repete a listagem e pede denovo
@@ -674,30 +643,26 @@ def menuLerPorTipo():
     menuReport()                                            # Finalmente, retorna ao menu anterior
     
 def menuLerPorAntesDe(): #fix
-    # print(f'entrou menuLerPorAntesDe') #[DEBUG]
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
           f'       SAVE ⏇he Oceans\n'
           f'\n'
           f' Digite uma data para buscar\n'
           f' datas anteriores:\n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    time.sleep(0.1)
     respData = respostaUsuario('')                     # Pede input sem mensagem customizada
-    # print(f'respSigla = {respSigla}') #[DEBUG]
     casosFiltroBusca(respData, tipoFiltro='antesDe')
     menuReport()
     
 def menuLerPorDepoisDe(): #fix
-    # print('Entrou menuLerPorDepoisDe') #[DEBUG]
     print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
           f'       SAVE ⏇he Oceans\n'
           f'\n'
           f' Digite uma data para buscar\n'
           f' datas posteriores:\n'
           f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(3.5)
+    time.sleep(0.1)
     respData = respostaUsuario('')                     # Pede input sem mensagem customizada
-    # print(f'respSigla = {respSigla}') #[DEBUG]
     casosFiltroBusca(respData, tipoFiltro='depoisDe')
     menuReport()
     
@@ -717,14 +682,14 @@ def menuSouPF():                            # Fornece link de ONG
                     f'   Faça parte da luta por\n'
                     f'      um \033[4mmundo melhor\033[0m!\n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)
+    time.sleep(0.1)
     print          (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
                     f'       SAVE ⏇he Oceans\n'
                     f' Para mais informações, acesse:\n'
                     f' https://parceirosdomar.org/\n'
                     f'   Seja um \033[4mParceiro do Mar!\033[0m\n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)
+    time.sleep(0.1)
     menuLogado()
     
 def menuSouPJ():                            # Pede dados da empresa para fazer parceria (apenas visual)
@@ -734,7 +699,7 @@ def menuSouPJ():                            # Pede dados da empresa para fazer p
                     f'      um mundo melhor?\n'
                     f'    \033[4mSeja nosso parceiro\033[0m!\n'     # "\033[4 ... \033[0m" Coloca Sublinhado
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)
+    time.sleep(0.1)
     resposta = imprimirMenu(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
                             f'       SAVE ⏇he Oceans\n'
                             f' \033[4mFormulário de Parceria\033[0m:\n'
@@ -755,14 +720,14 @@ def menuSouPJ():                            # Pede dados da empresa para fazer p
                             f'\n'
                             f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿',[],'')
     resposta = notNull(resposta,' 3. Contato? (obrigatório)\n')           # Valida se vazio
-    time.sleep(0.7)
+    time.sleep(0.1)
     print          (f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿\n'
                     f'       SAVE ⏇he Oceans\n'
                     f'\n'
                     f'    \033[4mFormulário recebido!\033[0m\n'
                     f'        Agradecemos!\n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)         # Dados: são descartados ao término do formulário
+    time.sleep(0.1)         # Dados: são descartados ao término do formulário
     menuLogado()
     
 def menuMeuPerfil():
@@ -781,7 +746,7 @@ def menuMeusDados():                        # Imprime os dados cadastrais do usu
                     f' Usuário: {historicoUserSenhaLogados[-1][0]}\n'
                     f' Senha: {historicoUserSenhaLogados[-1][1]}\n'
                     f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-    time.sleep(5.5)
+    time.sleep(0.1)
     menuMeuPerfil()
     
 def menuMinhasDenuncias():                  # Lista as denúncias que o usuário fez
@@ -792,7 +757,7 @@ def menuMinhasDenuncias():                  # Lista as denúncias que o usuário
                f' denúncia. Fique à vontade\n'
                f'  para contribuir conosco!\n'
                f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-        time.sleep(5.5)
+        time.sleep(0.1)
     else:
         for r in meusReports:                           # Caso 2: Denunciou, lista ela(s)
             for t in tiposReport:
@@ -804,7 +769,7 @@ def menuMinhasDenuncias():                  # Lista as denúncias que o usuário
             print(f' {r[2]}\n'.title())
             print(f' {r[0]} - {r[1]}\n'.title())
             print(f'~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿~∿')
-            time.sleep(5.5)
+            time.sleep(0.1)
     menuMeuPerfil()
 
 # ==============================================================================================================================================
